@@ -38,4 +38,13 @@ export const deleteSavedTweet = async (id: number) => {
     .eq('id', id)
   
   if (error) throw error
+}
+
+export const updateSavedTweet = async (id: number, content: string) => {
+  const { error } = await supabase
+    .from('saved_tweets')
+    .update({ content })
+    .eq('id', id)
+  
+  if (error) throw error
 } 
